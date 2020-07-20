@@ -2,18 +2,16 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app:
-    servicefor:
-  name:
-  namespace:
+    app: pages
+  name: pages
+  namespace: rkp
 spec:
   ports:
-  - port:
-    protocol:
-    targetPort:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
   selector:
-    app:
-    servicefor:
-  type: LoadBalancer
+    app: pages
+  type: NodePort
 status:
   loadBalancer: {}
