@@ -1,5 +1,0 @@
-pks login -a --  -u pks-username  -k -p pks-password
-
-
-whats docker id?
-
