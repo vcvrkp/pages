@@ -21,8 +21,7 @@ spec:
     spec:
       volumes:
       - name: log-volume
-        persistentVolumeClaim:
-          claimName: log-persistent-claim
+        emptyDir: {}
       containers:
       - image: mytechdictionary/pages:persist
         imagePullPolicy: Always

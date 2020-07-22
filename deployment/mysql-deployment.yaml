@@ -34,7 +34,7 @@ spec:
       volumes:
         - name: mysql-storage
           persistentVolumeClaim:
-            claimName: mysql-volume-claim
+            claimName: rkp-volume-claim
 ---
 apiVersion: v1
 kind: Service
