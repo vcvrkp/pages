@@ -2,7 +2,7 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: log-persistent-volume
-  namespace: aditya
+  namespace: rkp
   labels:
     type: local
 spec:
