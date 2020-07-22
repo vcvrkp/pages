@@ -13,10 +13,13 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+      - name: Start Ubuntu MySQL
+        run: sudo systemctl start mysql.service
       - name: Build with Gradle
-        run: |
-          chmod +x ./gradlew
-          ./gradlew clean build -x test
+        uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: build
+          gradle-version: 6.4.1
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
