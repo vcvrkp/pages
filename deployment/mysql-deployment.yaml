@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-    namespace: rkp
+  namespace: rkp
 spec:
   replicas: 1
   selector:
@@ -46,4 +46,4 @@ spec:
     - port: 3306
   selector:
     app: mysql
-  clusterIP: None
+    clusterIP: None

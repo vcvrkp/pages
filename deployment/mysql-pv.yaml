@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: mysql-volume
-  namespace: <your-name>
+  namespace: rkp
   labels:
     type: local
 spec:
