@@ -1,9 +1,7 @@
 name: Pages Pipeline
-
 on:
   push:
     branches: [master]
-
 jobs:
   build-artifact:
     runs-on: ubuntu-latest
@@ -25,14 +23,13 @@ jobs:
         with:
           name: artifact
           path: build/libs/pages.jar
-
       - name: build-docker-image
         uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: ${{ secrets.DOCKER_USERNAME }}/pages
-          tags: persist
+          tags: persistence
   deploy-image-to-pks:
     needs: build-artifact
     runs-on: ubuntu-latest
@@ -57,7 +54,6 @@ jobs:
           pks login -a ${{ secrets.PKS_API }}  ${{ secrets.PKS_CLUSTER }} -u ${{ secrets.PKS_USERNAME }} -k -p ${{ secrets.PKS_PASSWORD }}
           pks get-credentials pks-workshop
           kubectl apply -f deployment/pages-namespace.yaml
-
           kubectl apply -f deployment/mysql-pv.yaml
           kubectl apply -f deployment/mysql-secret.yaml
           kubectl apply -f deployment/mysql-deployment.yaml
@@ -65,16 +61,3 @@ jobs:
           kubectl apply -f deployment/pages-service.yaml
           kubectl delete -f deployment/pages-deployment.yaml
           kubectl apply -f deployment/pages-deployment.yaml
-
-
-
-
-
-    #1 - Install Pivnet
-    #2 - Install PKS CLI
-    #3 - Install kubectl
-    #4 - Login to pks
-    #5 - Set the kubectl context to target pks cluster
-    #6 - Create ConfigMap/Secrets
-    #7 - Create Service
-    #8-  Create Deployment

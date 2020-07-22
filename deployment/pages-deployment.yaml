@@ -23,7 +23,7 @@ spec:
       - name: log-volume
         emptyDir: {}
       containers:
-      - image: mytechdictionary/pages:persist
+      - image: mytechdictionary/pages:persistence
         imagePullPolicy: Always
         name: pages
         ports:
