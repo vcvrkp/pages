@@ -1,20 +1,4 @@
 apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: mysql-volume
-  namespace: rkp
-  labels:
-    type: local
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 2Gi
-  accessModes:
-    - ReadWriteMany
-  hostPath:
-    path: "/mnt/data"
----
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mysql-volume-claim
